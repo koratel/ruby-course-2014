@@ -1,4 +1,5 @@
 class Article
+  attr_reader :title, :content, :author
   def initialize(title, content, author="")
     @title, @content, @author = title, content, author
     @likes = @dislikes = 0
@@ -39,5 +40,9 @@ class Article
 
   def distinct_words
     words.uniq!
+  end
+
+  def to_s
+    '"' + @title + '", ' + @author + "\n" + shortened_to(40) + "\n" + @created_at.to_s + "\n"
   end
 end

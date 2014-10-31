@@ -26,5 +26,14 @@ class MockArticle < Article
   def generate_sentence
     random_words(rand(6)+5).join(" ").capitalize << "."
   end
+
+  def generate_content
+    Array.new(rand(5)+1).collect!{ generate_sentence }.join(" ")
+  end
+
+  def initialize
+    super(generate_title, generate_content, generate_author)
+    @likes, @dislikes = random_number, random_number
+  end
 end
 

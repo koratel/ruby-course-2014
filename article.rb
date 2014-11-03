@@ -39,7 +39,7 @@ class Article
   end
 
   def distinct_words
-    words.uniq!
+    words.uniq
   end
 
   def to_s

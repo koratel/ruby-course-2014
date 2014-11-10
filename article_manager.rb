@@ -30,7 +30,7 @@ class ArticleManager
   end
 
   def authors
-    @articles.collect { |art| art.author }.uniq!
+    @articles.collect { |art| art.author }.uniq
   end
 
   def number_of_authors

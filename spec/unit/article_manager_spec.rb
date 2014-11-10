@@ -2,10 +2,6 @@ require_relative '../../article_manager'
 require_relative '../../article'
 require 'test/unit'
 
-class ArticleManager
-  attr_accessor :likes, :dislikes
-end
-
 class ArticleManagerSpec < Test::Unit::TestCase
   def setup
     @content = "content content"

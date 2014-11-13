@@ -1,5 +1,5 @@
 class Article
-  attr_reader :title, :content, :author
+  attr_reader :title, :content, :author, :likes, :dislikes, :created_at
   def initialize(title, content, author="")
     @title, @content, @author = title, content, author
     @likes = @dislikes = 0

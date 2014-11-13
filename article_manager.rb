@@ -44,4 +44,10 @@ class ArticleManager
   def to_s
     @articles.reduce('') { |str, art|  str + art.to_s + "\n" }
   end
+
+  def load_articles(path)
+    Dir.foreach(path) do |file|
+      @articles << ArticleFilesystem.read(path + file) unless File.directory?(path + file)
+    end
+  end
 end

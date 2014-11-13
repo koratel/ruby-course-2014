@@ -15,4 +15,14 @@ class ArticleFilesystem
       )
     end
   end
+
+  def self.read(path)
+    File.open(path, 'r') do |file|
+      author, title, content, likes, dislikes = file.read.split("|")
+      article = Article.new(title, content, author)
+      likes.to_i.times { article.like! }
+      dislikes.to_i.times { article.dislike! }
+      article
+    end
+  end
 end

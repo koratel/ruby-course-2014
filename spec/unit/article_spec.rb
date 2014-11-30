@@ -2,13 +2,14 @@ require_relative '../../article'
 require 'test/unit'
 
 class Article
-  attr_accessor :likes, :dislikes
+  attr_accessor :likes, :dislikes, :created_at
 end
 
 class ArticleSpec < Test::Unit::TestCase
   def setup
     @content = "Content content content"
     @article = Article.new("Title", @content, "Author")
+    @article.created_at = Date.new(2014, 11, 30)
   end
 
   def test_like!
@@ -44,6 +45,10 @@ class ArticleSpec < Test::Unit::TestCase
 
   def test_distinct_words
     assert_equal(["Content", "content"], @article.distinct_words)
+  end
+
+  def test_created_stamp
+    assert_equal("Sunday, November 30, 2014", @article.created_stamp)
   end
 end
 
